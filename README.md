@@ -22,7 +22,7 @@ The error log file only is created if talkgroups exist in original list equal to
 
 When creating this script I realized TGIF has some talkgroups with 7 digits already and some of those did not have 4 as their leading digit. 
 
-***** Note:I use 4 as my TGIF custom configuration. This script will work with whatever digit you want from 1 - 9. *****
+***** Note: I use 4 as my TGIF custom configuration. This script will work with whatever digit you want from 1 - 9. *****
 
 So I pulled out those with 7 which did not start with the desired leading digit; saving them to error file so they did not corrupt your codeplug in case they were overlooked.
 
