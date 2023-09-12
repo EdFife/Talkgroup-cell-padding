@@ -2,7 +2,9 @@
 Python script to add user defined digit and pad the talkgroup field to 7 digits for use with Ham radio DMR hotspot software custom configuration.
 
 Script written for Windows environment since most DMR radios only have windows apps for codeplug manipulation. 
+
 Written by Ed, KE8TES
+
 Frustrated to have to pad out TG cells again I wrote this quick script. 
 
 This will work on all talkgroup lists to pad out the Talkgroup number to 7 digits for Custom network configuration. 
