@@ -28,6 +28,9 @@ So I pulled out those with 7 which did not start with the desired leading digit;
 
 I did not add header row to the output files as you typically are just pasting the files together anyway.
 
+***********************************************
+Note: This file does create a file on your computer called temp.csv while it processes and deletes when processing is complete. It will appear in the root directory with the python file.
+
 Please use and modify as you see fit.
 
 73s, Ed
