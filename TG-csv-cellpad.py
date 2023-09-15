@@ -20,22 +20,43 @@ starting_number = input("What number do you need to lead with for your configura
 savefilename = (filepath + "/TG_" + starting_number + "_list.csv") # saving to same directory as opened file with filename of TG_x_list.csv.
 Errorfile = (filepath + "/TG_" + starting_number + "_Errorlog.csv") # Error log file saving to same directory with filename of TG_x_Errorlog.csv.
 
-with open(filename, 'r') as input_file, open(Errorfile, 'a+', newline='') as output_file2, open(savefilename, 'a+', newline='') as output_file: #opening  files to pad TG column, and sort good from bad 7 digit groups. Both output files in a+, append status
+with open(filename, 'r') as input_file, open("temp.csv", 'w+', newline='') as output_file2, open(savefilename, 'w+', newline='') as output_file: #opening  files to pad TG column, creates a temp.csv file to place bad TG numbers in
     reader = csv.reader(input_file)
     writer = csv.writer(output_file)
     writer = csv.writer(output_file2)
-    
+
     for row in reader:
         if len(row[0]) < 7:
             row[0] = starting_number + row[0].rjust(6, '0') # if cell is less than 7 add your prefix digit and pad cell to 7
             writer = csv.writer(output_file)
             writer.writerow(row) # write to TG_x_List.csv in same folder as original file
           
-        elif len(row[0]) == 7: 
-            if row[0].startswith(starting_number): # Check if first digit is what you are setting talkgroups to, if so write to TG_x_List.csv also 
-                writer = csv.writer(output_file)
-                writer.writerow(row)
-            else:
-                writer = csv.writer(output_file2) # save "bad" talkgroups to TG_x_Errorlog.csv
-                writer.writerow(row)   
+        elif len(row[0]) == 7:
+            writer = csv.writer(output_file2) # save "bad" talkgroups to temp file
+            writer.writerow(row) 
         
+        else:
+            continue 
+            
+    input_file.close()
+    output_file.close()
+    output_file2.close()
+    
+with open("temp.csv", 'r+') as input_file, open(Errorfile, 'w', newline='') as output_file2, open(savefilename, 'a+', newline='') as output_file: # opening temp file to loop through bad files and find ones that are 7 long and start with your first character
+    reader = csv.reader(input_file) # reading the temp file
+    writer = csv.writer(output_file)
+    writer = csv.writer(output_file2)
+    
+    for row in reader:
+        if row[0].startswith(starting_number):
+            writer = csv.writer(output_file)
+            writer.writerow(row) # append to TG_x_List.csv in same folder as original file
+            
+        else:
+            writer = csv.writer(output_file2)
+            writer.writerow(row) # write to TG_x_Errorlog.csv in same folder as original file
+            
+            continue
+        
+os.remove("temp.csv")
+    
