@@ -20,7 +20,7 @@ To Use this script:
 
 The error log file only is created if talkgroups exist in original list equal to 7 digits then they are processed to see if any with 7 have same first digit as your leading digit and if so they are added back into the TG_x_List.csv file and the other 7 digit ones written to TG_x_Errorlog.csv
 
-When creating this script I realized TGIF has some talkgroups with 7 digits already and some of those did not have 4 as their leading digit. 
+When creating this script I realized TGIF has some talkgroups with 7 digits already and some of those did not have 4, 3 etc. as their leading digit. 
 
 ***** Note: I use 4 as my TGIF custom configuration. This script will work with whatever digit you want from 1 - 9. *****
 
@@ -29,7 +29,6 @@ So I pulled out those with 7 which did not start with the desired leading digit;
 I did not add header row to the output files as you typically are just pasting the files together anyway.
 
 ***********************************************
-Note: This file does create a file on your computer called temp.csv while it processes and deletes when processing is complete. It will appear in the root directory with the python file.
 
 Please use and modify as you see fit.
 
