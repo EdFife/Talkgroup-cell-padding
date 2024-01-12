@@ -1,7 +1,10 @@
 Talkgroup-cell-padding
-Python script to add user defined digit and pad the talkgroup field to 7 digits for use with Ham radio DMR hotspot software custom configuration.
+Python script to add user defined digit and pad the talkgroup field to 7 digits for use with Ham radio DMR hotspot software custom configuration of Pi-Star or WPSD hotspot software.
+This helps format your talkgroups correctly for custom talkgroup routing rules.
 
 Script written for Windows environment since most DMR radios only have windows apps for codeplug manipulation. 
+
+Requires Python3,  Python modules os, csv, tkinter.
 
 Written by Ed, KE8TES
 
